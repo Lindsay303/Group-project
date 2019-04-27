@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Office Giphy Section</title>
+    <link rel="stylesheet" type="text/css" href="assets\css\OfficeMeme.css">
+    <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="one-half column" style="margin-top: 10%">
+          <button data-character="Pam Beesly" id="close-image"><img src="assets\images\Pam.jpg">Pam</button>
+          <button data-character="Dwight Schrute"id="close-image"><img src="assets\images\Dwight-2.jpg">Dwight</button>
+          <button data-character="Jim Halpert"id="close-image"><img src="assets\images\Jim.jpg">Jim</button>
+          <button data-character="Micheal Scott"id="close-image"><img src="assets\images\Michael.jpg">Micheal</button>
+          <button data-character="Kevin Malone" id="close-image"><img src="assets\images\Kevin.jpg">Kevin</button>
+          </div>
+    </div>
+          <div class="row">
+      <div class="one-half column">
+  <button data-character="Angela Martin" id="close-image"><img src="assets\images\Angela.jpg">Angela</button>
+  <button data-character="Toby Flenderson" id="close-image"><img src="assets\images\Toby.jpg">Toby</button>
+  <button data-character="Ryan Howard" id="close-image"><img src="assets\images\Ryan-4.jpg">Ryan</button>
+  <button data-character="Stanley Hudson" id="close-image"><img src="assets\images\Stanley.jpg">Stanley</button>
+  <button data-character="Meredith The Office" id="close-image"><img src="assets\images\Meredith-2.jpg">Meredith</button>
+  </div>
+</div>
+  <div class="row">
+      <div class="one-half column">
+  <button data-character="Creed Bratton" id="close-image"><img src="assets\images\creed-3.jpg">Creed</button>
+  <button data-character="Kelly Kapoor" id="close-image"><img src="assets\images\Kelly-2.jpg">Kelly</button>
+  <button data-character="Phyllis Vance" id="close-image"><img src="assets\images\Phyllis.jpg">Phyllis</button>
+  <button data-character="Oscar The Office" id="close-image"><img src="assets\images\Oscar.jpg">Oscar</button>
+  <button data-character="Darryl Philbin" id="close-image"><img src="assets\images\darrylp_400x400.png">Darryl</button>
+ <!--- <button id="close-image"><img src="">Pam</button>-->
+  <!--<button id="close-CSS"></button>-->
+</div>
+</div>
+</div>
+<br>
+<br>
+<div class="container">
+<div class="row">
+
+<div id="characterGifs"></div>
+</div>
+</div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+        $('button').on('click',function(){
+          var x = $(this).data("character");
+          console.log(x);
+          var queryURL = "https://api.giphy.com/v1/gifs/search?q="+x+"&api_key=8Ykbk0xjP3DLoOmjiO3XiGKYxMbn3q82&limit=5";
+          $.ajax({
+            url: queryURL,
+             method: "GET" })
+             .done(function(response){
+                for (var i=0; i<response.data.length;i++){
+                  var characterDiv = $('<div>');
+                  var p = $('<p>').text(response.data[i].title);
+                  var characterImage = $("<img>");
+                  characterImage.attr('src',response.data[i].images.fixed_height_small.url);
+                  characterDiv.append(characterImage);
+                  characterDiv.append(p);
+                  $('#characterGifs').append(characterDiv);
+                  console.log(response);
+                }
+             })
+        })
+
+    </script>
+</body>
+</html>
