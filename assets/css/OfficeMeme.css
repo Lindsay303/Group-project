@@ -1,0 +1,67 @@
+body {
+   /* background: url("https://images3.alphacoders.com/704/704591.jpg");*/
+    
+    /*background: url("https://i.pinimg.com/736x/01/5c/32/015c321c81bb0028d32b3c95d5316d1c.jpg");*/
+    background: black;
+}
+
+
+button {
+    display: inline-block;
+    height: 130px;
+    padding: 0;
+    margin: 20px;
+    vertical-align: top;
+    width: 130px;
+}
+
+#close-image img {
+    display: block;
+    height: 130px;  
+    width: 130px;
+    margin-bottom: 5px;
+}
+
+#characterGifs {
+    display: block;
+    margin-top: 200px;
+    margin: 0 auto;
+}
+#close-image {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+.characterImage {
+    display: block;
+    margin: 0 auto;
+}
+
+.characterDiv {
+    margin-top: 25px;
+    margin: 0 auto;
+    width: 50%;
+    margin-left: 50px;
+}
+
+p {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 600;
+    color: white;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+/*.col s6 {
+    background: red;
+}*/
+/*#close-CSS {
+    background-image: url( 'https://www.google.com/imgres?imgurl=http%3A%2F%2Fdundermifflinoffice1.weebly.com%2Fuploads%2F7%2F1%2F1%2F6%2F71168279%2F2601007.jpg%3F345&imgrefurl=http%3A%2F%2Fdundermifflinoffice1.weebly.com%2Fjim-halpert.html&docid=BOKS0o2Re21hzM&tbnid=c4QvJZCwK83m3M%3A&vet=10ahUKEwixoZea1u7hAhUFca0KHVgKCAIQMwhsKAEwAQ..i&w=441&h=441&bih=674&biw=1536&q=Jim%20Halpert&ved=0ahUKEwixoZea1u7hAhUFca0KHVgKCAIQMwhsKAEwAQ&iact=mrc&uact=8' );
+    background-size: 100px 130px;
+    height: 200px;  
+    width: 200px;
+}*?
