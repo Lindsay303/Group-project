@@ -91,6 +91,7 @@
 <div id="characterGifs"></div>
 </div>
 </div>
+<div class="row" id= "videos"></div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript">
         $('.carousel-images').on('click', function(){
@@ -113,7 +114,7 @@
                 }
              })
         })
-        $('button').on('click',function(){
+        $('.carousel-images').on('click',function(){
           var x = $(this).data("character");
           console.log(x);
           var queryURL = "https://api.giphy.com/v1/gifs/search?q="+x+"&api_key=8Ykbk0xjP3DLoOmjiO3XiGKYxMbn3q82&limit=5";
@@ -132,7 +133,28 @@
                   console.log(response);
                 }
              })
-        })
+             var videos = $(this).attr("data-name");
+        var queryURL = "https://www.googleapis.com/youtube/v3/search?q=" + "the office " + x + "&key=AIzaSyDNYBIL5UBvZd2dGGQzd0ZxfDZzEB8UdS4&part=snippet&type=video";
+        var videoFormat="https://www.youtube.com/embed?v="
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).done(function(response) {
+            console.log('videos', response.items);
+            for (var i=0; i<response.items.length;i++){
+                  var characterDiv = $('<div>');
+                  var p = $('<p>').text(response.items[i].snippet.title);
+                  var characterVideo = $("<iframe>");
+                  characterVideo.attr('src',videoFormat + response.items[i].id.videoId.sandbox);
+                  console.log(characterVideo);
+                  characterDiv.append(characterVideo);
+                  characterDiv.append(p);
+                  $('#videos').append(characterDiv);
+          console.log(response);
+        }       
+        });
+    });
+   
 
     </script>
 </body>
