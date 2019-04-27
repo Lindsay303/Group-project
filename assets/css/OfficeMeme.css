@@ -3,8 +3,16 @@ body {
     
     /*background: url("https://i.pinimg.com/736x/01/5c/32/015c321c81bb0028d32b3c95d5316d1c.jpg");*/
     background: black;
+    font-family: serif;
 }
 
+#carouselExampleInterval {
+    height: 300px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
 
 button {
     display: inline-block;
