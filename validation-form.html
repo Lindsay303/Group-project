@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <!-- LINK TO FIREBASE GOES HERE -->
+
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    form {
+      width: 500px;
+      margin: auto;
+      padding: 20px;
+      background: black;
+      font-size: 20px;
+      font-family: 'Special Elite', cursive;
+      color: white;
+    }
+    
+    .card-header {
+      width: 500px;
+      margin: auto;
+      padding: 20px;
+      background: black;
+      font-size: 20px;
+      font-family: 'Special Elite', cursive;
+      color: white;
+    }
+
+    input [type=text] {
+      width: 80%;
+      padding: 5px;
+      font-size: 20px;
+    }
+
+    input [type=submit] {
+      padding: 5px;
+      font-size: 20px;
+      width: 100;
+    }
+
+    select {
+      font-size: 20px;
+      padding: 5px;
+      background: #e0d3e8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form role="form">
+    <div class="form-group row">
+      <label for="age-input">Age:</label>
+      <input class="form-control" id="age-input" type="number">
+    </div>
+    <div class="form-group row">
+      <label for="quote-input">Favorite Quote</label>
+      <textarea class="form-control" id="quote-input" rows="5"></textarea>
+    </div>
+    <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+
+  </form>
+
+
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        Your Favorite Office Quote
+      </div>
+      <div class="card-body">
+        <div id="full-member-list">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <script>
+
+
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyChsJIztLBG4DSvzmqAzjf6tFG5XLJG0rM",
+      authDomain: "the-office-meme-project.firebaseapp.com",
+      databaseURL: "https://the-office-meme-project.firebaseio.com",
+      projectId: "the-office-meme-project",
+      storageBucket: "the-office-meme-project.appspot.com",
+      messagingSenderId: "472637649504"
+    };
+    firebase.initializeApp(config);
+
+    var dataRef = firebase.database();
+
+    //initial Values
+
+    var age = 0;
+    var quote = "";
+
+    //capture button click
+
+    $("#add-user").on("click", function (event) {
+      event.preventDefault();
+
+      console.log("add-user", "click");
+
+      //YOUR Task!!!
+      //Code in the logic for storing and retreiving the most recent user. 
+      //don't forget to provide initial date to your Firebase database. 
+
+      age = $("#age-input").val().trim();
+      quote = $("#quote-input").val().trim();
+
+      //code for the push
+
+      dataRef.ref().push({
+
+        age: age,
+        quote: quote,
+
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
+      });
+
+    });
+
+    //Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
+    dataRef.ref().on("child_added", function (childSnapshot) {
+
+      //Log everything that's coming out of snapshot
+
+      console.log("NAME:", childSnapshot.val().name);
+      console.log("AGE:", childSnapshot.val().age);
+
+      //full list of items to the well
+      $("#full-member-list").append("<div class='well'>" +
+        " </span><span class ='member-quote'> " + childSnapshot.val().quote +
+        " </span></div>");
+
+      //handle the errors
+    }, function (errorObject) {
+      console.log("Errors handled: " + errorObject.code)
+
+    });
+
+    dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
+      $("#age-display").text(snapshot.val().age);
+      $("#quote-display").text(snapshot.val().quote);
+
+    });
+
+
+
+
+  </script>
+
+  <!--JavaScript at end of body for optimized loading-->
+
+</body>
+
+</html>
