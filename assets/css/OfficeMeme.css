@@ -95,11 +95,8 @@ p {
     margin-top: 22px;
 }
     
-
-
 #Pmodal {
     font-family: 'Special Elite', cursive;
-
 }
 
 .modal-card-head {
@@ -143,10 +140,13 @@ audio {
 .card-body {
     font-family: 'Special Elite', cursive;
     font-size: 18px;
-    line-height: 32px;
-    color: rgb(209, 221, 132);
+    padding: 20px;
+    color: black;
 }
 
+.well {
+    padding: 20px;
+}
 .card {
     margin: 0 auto;
     margin-top: 50px;
