@@ -1,11 +1,8 @@
 body {
-   /* background: url("https://images3.alphacoders.com/704/704591.jpg");*/
-    
-    /* background: url("https://i.pinimg.com/736x/01/5c/32/015c321c81bb0028d32b3c95d5316d1c.jpg"); */
-    /* background: black; */
     background-image: url("../images/legalpad.jpg");
     font-family: serif;
-    background-size: cover;
+    /*background-size: cover;*/
+    background-repeat: repeat-y;
 }
 
 .center {
@@ -27,6 +24,9 @@ body {
     margin-right: auto;
     
 }
+.carousel-images {
+    cursor: pointer;
+}
 
 button {
     display: inline-block;
@@ -46,8 +46,9 @@ button {
 
 #characterGifs {
     display: block;
-    margin-top: 200px;
+    margin-top: 20px;
     margin: 0 auto;
+    /*float: left;*/
 }
 #close-image {
     color: black;
@@ -71,23 +72,124 @@ button {
 }
 
 p {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    /*font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;*/
     font-size: 600;
     color: black;
 }
 
+
 .container {
+    margin-top: 50px;
+}
+
+.row justify-content-between {
+    margin-right: 200px;
+}
+
+/* modal css */
+#modalButton {
+    font-family: 'Special Elite', cursive;
+    color: white;
+    background: rgb(25, 13, 1);
+    margin-bottom: 50px;
+    margin-top: 22px;
+}
+    
+
+
+#Pmodal {
+    font-family: 'Special Elite', cursive;
+
+}
+
+.modal-card-head {
+    background: rgb(25, 13, 1);
+}
+
+label {
+    font-family: 'Special Elite', cursive;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.btn-default {
+    font-family: 'Special Elite', cursive;
+    height: 32px;
+    color: white;
+    background: rgb(25, 13, 1);
+}
+
+audio {
+    margin-top: 47px;
+}
+
+.row {
+    margin:50px 20px 0px 20px;
+    padding-bottom: 20px;
+}
+
+#video{
+    margin-bottom: 0;
+    margin: 10px, 10px, 10px, 10px;
+}
+
+.card-header {
     width: 100%;
+    font-family: 'Special Elite', cursive; 
+    font-size: 30px;
+    
+}
+
+.card-body {
+    font-family: 'Special Elite', cursive;
+    font-size: 18px;
+    line-height: 32px;
+    color: rgb(209, 221, 132);
+}
+
+.card {
     margin: 0 auto;
+    margin-top: 50px;
     margin-bottom: 50px;
 }
 
-/*.col s6 {
-    background: red;
-}*/
-/*#close-CSS {
-    background-image: url( 'https://www.google.com/imgres?imgurl=http%3A%2F%2Fdundermifflinoffice1.weebly.com%2Fuploads%2F7%2F1%2F1%2F6%2F71168279%2F2601007.jpg%3F345&imgrefurl=http%3A%2F%2Fdundermifflinoffice1.weebly.com%2Fjim-halpert.html&docid=BOKS0o2Re21hzM&tbnid=c4QvJZCwK83m3M%3A&vet=10ahUKEwixoZea1u7hAhUFca0KHVgKCAIQMwhsKAEwAQ..i&w=441&h=441&bih=674&biw=1536&q=Jim%20Halpert&ved=0ahUKEwixoZea1u7hAhUFca0KHVgKCAIQMwhsKAEwAQ&iact=mrc&uact=8' );
-    background-size: 100px 130px;
-    height: 200px;  
-    width: 200px;
-}*?
+@media screen and (max-width:991px){
+    .modalRow, .audioDiv {
+        width: 100%;
+    }
+}
+
+/* {
+   background: black;
+    font-size: 20px;
+    font-family: 'Special Elite', cursive;
+    color: white;
+  }
+  
+ /* .card-header {
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: black;
+    font-size: 20px;
+    font-family: 'Special Elite', cursive;
+    color: white;
+  }
+
+  input [type=text] {
+    width: 80%;
+    padding: 5px;
+    font-size: 20px;
+  }
+
+  input [type=submit] {
+    padding: 5px;
+    font-size: 20px;
+    width: 100;
+  }
+
+  select {
+    font-size: 20px;
+    padding: 5px;
+    background: #e0d3e8;
+  }
