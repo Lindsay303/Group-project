@@ -237,7 +237,7 @@
                     characterDiv.addClass("col-md-4")
                   var p = $('<p>').text(response.items[i].snippet.title);
                   var characterVideo = $("<iframe>");
-                  characterVideo.attr('src',videoFormat + response.items[i].id.videoId.sandbox);
+                  characterVideo.attr('src',videoFormat + response.items[i].id.videoId);
                   console.log(characterVideo);
                   characterDiv.append(characterVideo);
                   characterDiv.append(p);
