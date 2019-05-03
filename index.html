@@ -224,7 +224,7 @@
              })
             var videos = $(this).attr("data-name");
         var queryURL = "https://www.googleapis.com/youtube/v3/search?q=" + "the office " + x + "&key=AIzaSyDNYBIL5UBvZd2dGGQzd0ZxfDZzEB8UdS4&part=snippet&type=video";
-        var videoFormat="https://www.youtube.com/embed?v="
+        var videoFormat="https://www.youtube.com/embed/"
         $.ajax({
           url: queryURL,
           method: "GET"
