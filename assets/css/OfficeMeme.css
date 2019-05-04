@@ -120,6 +120,20 @@ audio {
     margin-top: 47px;
 }
 
+.clickImage {
+    font-family: 'Special Elite', cursive;
+    font-size: 40px;
+    transform: rotate(-6deg);
+
+}
+
+.charImage {
+    font-family: 'Special Elite', cursive;
+    font-size: 40px;
+    transform: rotate(2deg);
+
+}
+
 .row {
     margin:50px 20px 0px 20px;
     padding-bottom: 20px;
